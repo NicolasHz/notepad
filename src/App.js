@@ -1,12 +1,25 @@
 import React, { Component } from 'react';
-import styles from './App.css';
+import { Route, Redirect, withRouter } from 'react-router-dom';
+import classes from './App.css';
+// Lazy loader
+import asyncComponent from './hoc/asyncComponent/asyncComponent';
+// Containers
+import Layout from './hoc/layout/Layout';
+
+const asyncHome = asyncComponent(() => {
+  return import('./containers/home/Home');
+});
 
 class App extends Component {
   render() {
+    const redirect = (this.props.location.pathname === '/home' ? null : <Redirect to="/home" />)
     return (
-      <div></div>
+      <Layout>
+        <Route path="/home" exact component={asyncHome} />
+        {redirect}
+      </Layout>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

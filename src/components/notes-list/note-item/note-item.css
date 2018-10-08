@@ -1,0 +1,82 @@
+.Note {
+    align-items: center;
+    background: #fff;
+    border-radius: 2px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    text-align: center;
+    height: 64px;
+    max-height: 200px;
+    margin: .5em 0;
+    position: relative;
+    width: 100%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.4s cubic-bezier(.36, -0.64, .34, 1.76);
+}
+
+.Note p {
+    height: 30px;
+    margin: auto 20px;
+}
+
+.Delete {
+    cursor: pointer;
+    position: absolute;
+    right: 32px;
+    width: 32px;
+    height: 50%;
+    opacity: 0.3;
+}
+
+.Delete:hover {
+    opacity: 1;
+}
+
+.Delete:before,
+.Delete:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: #333;
+}
+
+.Delete:before {
+    transform: rotate(45deg);
+}
+
+.Delete:after {
+    transform: rotate(-45deg);
+}
+
+.Note:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.Note.enter {
+    opacity: 0;
+    transform: rotateX(-90deg);
+}
+
+.Note.entered {
+    opacity: 1;
+    transform: none;
+    transition: all 0.4s cubic-bezier(.36, -0.64, .34, 1.76);
+}
+
+.Note.hide,
+.Note.hide p {
+    opacity: 0;
+    margin: 0;
+    height: 0;
+    transform: rotateX(-90deg);
+    transition: all 1.4s cubic-bezier(.36, -0.64, .34, 1.76);
+}
+
+@media (min-width: 800px) {
+    .Note {
+        width: 600px;
+    }
+}
