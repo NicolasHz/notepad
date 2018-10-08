@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Auxiliar from '../auxiliar/auxiliar'
+import * as classes from './Layout.css'
 // Redux
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
-
+import FlotantButton from '../../components/UI/buttons/flotantButton'
 class Layout extends Component {
 
     constructor(props) {
@@ -16,13 +17,13 @@ class Layout extends Component {
     componentDidMount() {
         this.setState({ notes: this.props.notes })
         setTimeout(() => {
-            this.props.onAddNote({ message: "asdasd", id: 2 })
+            this.props.onAddNote({ message: "Eat Pizza", id: 2 })
             setTimeout(() => {
-                this.props.onAddNote({ message: "ggfgrtre", id: 3 })
+                this.props.onAddNote({ message: "Go to the mall", id: 3 })
             }, 1000);
             setTimeout(() => {
-                this.props.onAddNote({ message: "yuiyyui", id: 7 })
-                this.props.onAddNote({ message: "jkljhlkjkl", id: 4 })
+                this.props.onAddNote({ message: "Mow the lawn", id: 7 })
+                this.props.onAddNote({ message: "Eat more pizza!!", id: 4 })
             }, 3000);
         }, 2000);
 
@@ -37,7 +38,9 @@ class Layout extends Component {
     render() {
         return <Auxiliar>
             {this.props.children}
-            
+            <div className={classes.ModalButton}>
+                <FlotantButton/>
+            </div>
         </Auxiliar>
     }
 }
