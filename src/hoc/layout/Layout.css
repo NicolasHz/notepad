@@ -1,16 +1,29 @@
-.ModalButton {
-    width: 42px;
-    position: absolute;
+.Layout {
+    background: url('../../assets/img/main-background-mobile.svg');
+    min-height: 100vh;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.NotePadButtonWrapper {
+    position: fixed;
     right: 0;
     bottom: 0;
     margin: 1em;
     border-radius: 50%;
-    padding: 1em;
+    outline: none;
     box-shadow: 5px 3px 7px rgba(0, 0, 0, 0.12), 4px 4px 17px rgba(0, 0, 0, 0.24);
-    /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */
-    transition: all 0.4s cubic-bezier(.36, -0.64, .34, 1.76);
+    transition: all 0.2s ease-in-out;
 }
-.ModalButton:hover {
-    box-shadow: 2px 1px 2px rgba(0, 0, 0, 0.12), 0px 1px 6px rgba(0, 0, 0, 0.24);
-    /* box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.12), 2px 3px 4px rgba(0, 0, 0, 0.24); */
+
+.NotePadButtonWrapper:hover {
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.12), 0px 0px 0px rgba(0, 0, 0, 0.24);
+}
+
+@media (min-width: 800px) {
+    .Layout {
+        background: url('../../assets/img/main-background-desktop.svg');
+        min-height: 100vh;
+        background-size: cover;
+    }
 }

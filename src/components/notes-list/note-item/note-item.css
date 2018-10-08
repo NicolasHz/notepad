@@ -17,13 +17,14 @@
 
 .Note p {
     height: 30px;
+    line-height: 27px;
     margin: auto 20px;
 }
 
 .Delete {
     cursor: pointer;
     position: absolute;
-    right: 32px;
+    right: 24px;
     width: 32px;
     height: 50%;
     opacity: 0.3;

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Auxiliar from '../../hoc/auxiliar/auxiliar'
+import * as classes from './Home.css'
 // Redux
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';

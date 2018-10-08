@@ -4,7 +4,7 @@ import * as classes from './Layout.css'
 // Redux
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
-import FlotantButton from '../../components/UI/buttons/flotantButton'
+import NotePadButton from '../../components/UI/buttons/notePadButton'
 class Layout extends Component {
 
     constructor(props) {
@@ -24,6 +24,10 @@ class Layout extends Component {
             setTimeout(() => {
                 this.props.onAddNote({ message: "Mow the lawn", id: 7 })
                 this.props.onAddNote({ message: "Eat more pizza!!", id: 4 })
+                setTimeout(() => {
+                    this.props.onAddNote({ message: "Mow the lawn", id: 8 })
+                    this.props.onAddNote({ message: "Eat more pizza!!", id: 6 })
+                }, 2000);
             }, 3000);
         }, 2000);
 
@@ -37,9 +41,11 @@ class Layout extends Component {
 
     render() {
         return <Auxiliar>
-            {this.props.children}
-            <div className={classes.ModalButton}>
-                <FlotantButton/>
+            <div className={classes.Layout}>
+                {this.props.children}
+                <div className={classes.NotePadButtonWrapper}>
+                    <NotePadButton />
+                </div>
             </div>
         </Auxiliar>
     }

@@ -4,8 +4,8 @@ import CSSTransition from "react-transition-group/CSSTransition";
 
 const noteItem = (props) => {
     const animationTiming = {
-        enter: props.enterTime,
-        exit: props.exitTime
+        enter: props.enterTime || 400,
+        exit: props.exitTime || 400
     };
     return (
             <CSSTransition
@@ -14,12 +14,12 @@ const noteItem = (props) => {
                 in={props.in}
                 timeout={animationTiming}
                 classNames={{
-                    enter: classes.enter,
-                    enterActive: classes.entered,
-                    enterDone: classes.show,
-                    exit: classes.hide
+                    enter: props.animation? classes[props.animation.enter] : classes.enter,
+                    enterActive: props.animation? classes[props.animation.entered] : classes.entered,
+                    enterDone: props.animation? classes[props.animation.show] : classes.show,
+                    exit: props.animation? classes[props.animation.hide] : classes.hide
                 }}>
-                <div className={[classes.Note].join(' ')}>
+                <div className={classes.Note}>
                     <p>{props.noteMessage}</p>
                     <span className={classes.Delete} onClick={props.delete}/>
                 </div>
