@@ -16,6 +16,7 @@ const noteItem = (props) => {
                 classNames={{
                     enter: classes.enter,
                     enterActive: classes.entered,
+                    enterDone: classes.show,
                     exit: classes.hide
                 }}>
                 <div className={[classes.Note].join(' ')}>

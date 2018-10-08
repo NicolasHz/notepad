@@ -8,11 +8,8 @@ import NoteList from '../../components/notes-list/note-list'
 
 class Home extends Component {
 
-    constructor(props){
-        super();
-        this.state = {
-            notes: props.notes
-        }
+    state = {
+        notes: []
     }
 
     componentDidMount() {
@@ -27,8 +24,8 @@ class Home extends Component {
 
     render() {
         return (<Auxiliar>
-                    <NoteList deleteNote={(noteId) => this.props.onRemoveNote(noteId)} notes={this.state.notes}/>
-                </Auxiliar>)
+            <NoteList deleteNote={(noteId) => this.props.onRemoveNote(noteId)} notes={this.state.notes} />
+        </Auxiliar>)
     }
 }
 

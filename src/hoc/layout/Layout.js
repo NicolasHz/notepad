@@ -37,6 +37,7 @@ class Layout extends Component {
     render() {
         return <Auxiliar>
             {this.props.children}
+            
         </Auxiliar>
     }
 }
