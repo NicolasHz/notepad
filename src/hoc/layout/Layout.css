@@ -1,0 +1,29 @@
+.Layout {
+    background: url('../../assets/img/main-background-mobile.svg');
+    min-height: 100vh;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.NotePadButtonWrapper {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin: 1em;
+    border-radius: 50%;
+    outline: none;
+    box-shadow: 5px 3px 7px rgba(0, 0, 0, 0.12), 4px 4px 17px rgba(0, 0, 0, 0.24);
+    transition: all 0.2s ease-in-out;
+}
+
+.NotePadButtonWrapper:hover {
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.12), 0px 0px 0px rgba(0, 0, 0, 0.24);
+}
+
+@media (min-width: 800px) {
+    .Layout {
+        background: url('../../assets/img/main-background-desktop.svg');
+        min-height: 100vh;
+        background-size: cover;
+    }
+}
