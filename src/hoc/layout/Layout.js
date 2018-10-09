@@ -9,30 +9,6 @@ import NotePadButton from '../../components/UI/buttons/notePadButton/notePadButt
 import NotePad from '../../components/notepad/notePad'
 
 class Layout extends Component {
-
-    constructor(props) {
-        super();
-    }
-
-    componentDidMount() {
-        this.setState({ notes: this.props.notes })
-        setTimeout(() => {
-            this.props.onAddNote({ message: "Eat Pizza", id: 2 })
-            setTimeout(() => {
-                this.props.onAddNote({ message: "Go to the mall", id: 3 })
-            }, 1000);
-            setTimeout(() => {
-                this.props.onAddNote({ message: "Mow the lawn", id: 7 })
-                this.props.onAddNote({ message: "Eat more pizza!!", id: 4 })
-                setTimeout(() => {
-                    this.props.onAddNote({ message: "Mow the lawn", id: 8 })
-                    this.props.onAddNote({ message: "Eat more pizza!!", id: 6 })
-                }, 2000);
-            }, 3000);
-        }, 2000);
-    }
-
-
     render() {
         return <Auxiliar>
             <div className={classes.Layout}>

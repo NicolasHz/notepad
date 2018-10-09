@@ -5,8 +5,9 @@ import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
 import CSSTransition from "react-transition-group/CSSTransition";
 // Components
-import NoteList from '../notes-list/note-list'
 import Auxiliar from '../../hoc/auxiliar/auxiliar';
+import NoteList from '../notes-list/note-list'
+import NotepadForm from './notepadForm/notepad-form';
 // Utility
 import { delayedProps } from '../../shared/utility';
 import Backdrop from '../UI/backdrop/backdrop';
@@ -44,10 +45,15 @@ class NotePad extends Component {
                         exit: this.props.animation ? classes[this.props.animation.hide] : classes.hide
                     }}>
                     <div className={classes.NotePad}>
-                        <NoteList deleteNote={(noteId) => this.props.onRemoveNote(noteId)} notes={this.state.notes} />
+                        <div className={classes.NotePadList}>
+                            <NoteList deleteNote={(noteId) => this.props.onRemoveNote(noteId)} notes={this.state.notes} />
+                        </div>
+                        <div className={classes.NoteFormWrapper}>
+                            <NotepadForm onAddNoteHandler={(note) => { this.props.onAddNote(note) }} />
+                        </div>
                     </div>
                 </CSSTransition>
-                {this.props.showNotepad && <Backdrop clicked={() => { this.props.onHideNotepad()}}/>}
+                {this.props.showNotepad && <Backdrop clicked={() => { this.props.onHideNotepad() }} />}
             </Auxiliar>
         )
     }

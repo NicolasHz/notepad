@@ -1,16 +1,29 @@
 .NotePad {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
     height: 0;
     width: 0;
     z-index: 300;
     position: fixed;
     bottom: 7em;
-    overflow-y: scroll;
-    overflow-x: hidden;
     padding: 1em;
     border-radius: 5px;
     right: 10%;
     background: white;
-    /* transition: all 0.4s cubic-bezier(.36, -0.64, .34, 1.76); */
+}
+
+.NotePadList {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 90%;
+    width: 100%;
+}
+
+.NoteFormWrapper {
+    width: 100%;
+    background: white;
+    border-radius: 5px;
 }
 
 .NotePad.enter {
@@ -20,34 +33,26 @@
 .NotePad.entered {
     opacity: 1;
     animation: grow .6s ease-out;
-    /* width: 300px;
-    height: 300px;
-    transition: all 0.8s cubic-bezier(.36, -0.64, .34, 1.76); */
 }
 
 .NotePad.show {
     height: 50%;
     width: 70%;
-    /* animation: grow .8s ease-in; */
 }
 
 .NotePad.hide {
-    /* opacity: 0;
-    margin: 0;
-    height: 0; */
     animation: leave .8s ease-out;
-    /* transition: all 0.8s cubic-bezier(.36, -0.64, .34, 1.76); */
 }
 
-.NotePad::-webkit-scrollbar {
+.NotePadList::-webkit-scrollbar {
     width: .8em;
 }
 
-.NotePad::-webkit-scrollbar-track {
+.NotePadList::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
-.NotePad::-webkit-scrollbar-thumb {
+.NotePadList::-webkit-scrollbar-thumb {
     background-color: darkgrey;
     outline: 1px solid slategrey;
 }

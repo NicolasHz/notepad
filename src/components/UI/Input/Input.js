@@ -1,6 +1,6 @@
 import React from 'react';
 
-import classes from './Input.css';
+import classes from './input.css';
 
 const input = ( props ) => {
     let inputElement = null;
@@ -46,10 +46,11 @@ const input = ( props ) => {
                 value={props.value}
                 onChange={props.changed} />;
     }
-
+    const labelClasses = [classes.Label];
+    props.label.length > 0 && labelClasses.push(classes.LabelShow);
     return (
         <div className={classes.Input}>
-            <label className={classes.Label}>{props.label}</label>
+            <label className={labelClasses.join(' ')}>{props.label}</label>
             {inputElement}
         </div>
     );
