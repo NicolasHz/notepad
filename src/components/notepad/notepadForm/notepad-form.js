@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { updateObject, checkValidity } from '../../../shared/utility';
+import { updateObject, checkValidity, capitalizeFirstLetter } from '../../../shared/utility';
 import Input from '../../UI/input/input'
 import * as classes from './notepad-form.css'
 
@@ -45,7 +45,10 @@ class NotepadForm extends Component {
 
     submitNoteHandler = (event) => {
         event.preventDefault()
-        const note = { message: this.state.notePadForm.message.value, id: Date.now() };
+        const note = {
+            message: capitalizeFirstLetter(this.state.notePadForm.message.value),
+            id: Date.now()
+        };
         this.props.onAddNoteHandler(note);
         this.setState(prevState => ({
             ...prevState,

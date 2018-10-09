@@ -27,10 +27,14 @@ export const checkValidity = (value, rules) => {
 
     if (rules.maxLength) {
         valid.isValid = value.length <= rules.maxLength && valid.isValid;
-        valid.message = valid.isValid ? '' : 'Min lenght is ' + rules.maxLength;
+        valid.message = valid.isValid ? '' : 'Max lenght is ' + rules.maxLength;
     }
 
     return valid;
+}
+
+export function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 export function delayedProps(props, delay){
