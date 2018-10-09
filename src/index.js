@@ -7,6 +7,7 @@ import { createStore, compose, combineReducers } from 'redux';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import notesReducer from './store/reducers/notes.reducer'
+import notepadReducer from './store/reducers/note-pad.reducer'
 
 const composeEnhancers =
     process.env.NODE_ENV === "development"
@@ -14,7 +15,8 @@ const composeEnhancers =
         : null || compose;
 
 const rootReducer = combineReducers({
-    notesState: notesReducer
+    notesState: notesReducer,
+    UIState: notepadReducer
 });
 
 const store = createStore(

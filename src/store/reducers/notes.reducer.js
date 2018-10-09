@@ -4,7 +4,7 @@ import {updateObject} from '../../shared/utility';
 const initialState = {
     notes: [
         {
-            message: "Remember buy carrots?", id:1
+            message: "Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola Hola ", id:1
         }
     ]
 }

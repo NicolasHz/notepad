@@ -6,7 +6,8 @@ import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
 // Components
 import NoteList from '../../components/notes-list/note-list'
-
+// Utility
+import { delayedProps } from '../../shared/utility';
 class Home extends Component {
 
     state = {
@@ -18,9 +19,7 @@ class Home extends Component {
     }
 
     componentWillReceiveProps(newProps) {
-        setTimeout(() => {
-            this.setState({ notes: newProps.notes })
-        }, 2000);
+        delayedProps.call(this,newProps,2000)
     }
 
     render() {

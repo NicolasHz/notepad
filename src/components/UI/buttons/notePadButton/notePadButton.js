@@ -1,6 +1,6 @@
 import React from 'react';
 import * as classes from './notePadButton.css'
-const notePadButton = () =>  (<div className={classes.NotePadButton}>
+const notePadButton = (props) =>  (<div className={classes.NotePadButton} onClick={props.toggleNotePad}>
         <svg width="100%" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 58 58" style={{enableBackground:"new 0 0 58 58"}}>
             <g>
                 <path style={{fill:"#000075"}}  d="M53,3.293H5c-2.722,0-5,2.278-5,5v33c0,2.722,2.278,5,5,5h27.681l-4.439-5.161

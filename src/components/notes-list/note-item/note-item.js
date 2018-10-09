@@ -8,16 +8,18 @@ const noteItem = (props) => {
         exit: props.exitTime || 400
     };
     return (
-            <CSSTransition
+            <CSSTransition 
+                appear={true}
                 mountOnEnter
                 unmountOnExit
                 in={props.in}
                 timeout={animationTiming}
                 classNames={{
-                    enter: props.animation? classes[props.animation.enter] : classes.enter,
-                    enterActive: props.animation? classes[props.animation.entered] : classes.entered,
+                    appear: props.animation? classes[props.animation.enter] : classes.swingEnter,
+                    enter: props.animation? classes[props.animation.enter] : classes.swingEnter,
+                    enterActive: props.animation? classes[props.animation.entered] : classes.swingEntered,
                     enterDone: props.animation? classes[props.animation.show] : classes.show,
-                    exit: props.animation? classes[props.animation.hide] : classes.hide
+                    exit: props.animation? classes[props.animation.hide] : classes.swingHide
                 }}>
                 <div className={classes.Note}>
                     <p>{props.noteMessage}</p>

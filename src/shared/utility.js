@@ -22,7 +22,7 @@ export const checkValidity = (value, rules) => {
 
     if (rules.minLength) {
         valid.isValid = value.length >= rules.minLength && valid.isValid;
-        valid.message = valid.isValid ? '' : 'Min lenght is ' + rules.minLength;
+        valid.message = valid.isValid ? '' : 'Min length is ' + rules.minLength;
     }
 
     if (rules.maxLength) {
@@ -31,4 +31,16 @@ export const checkValidity = (value, rules) => {
     }
 
     return valid;
+}
+
+export function delayedProps(props, delay){
+    props.notes.length > this.state.notes.length ?
+        setTimeout(() => {
+            this.setState({
+                notes: props.notes
+            })
+        }, delay) :
+        this.setState({
+            notes: props.notes
+        });
 }

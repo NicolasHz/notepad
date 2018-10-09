@@ -1,0 +1,35 @@
+.NotePadForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.notePadFormBtn {
+    width: 8em;
+    height: 3em;
+    border: none;
+    padding: 0.6em 1.2em;
+    background: #a9a9a9;
+    color: #fff;
+    font-family: 'Lato', Calibri, Arial, sans-serif;
+    font-size: 1em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    border-radius: 2px;
+    font-weight: 400;
+    outline: none;
+    font-size: 75%;
+    background: rgba(0, 0, 117, 0.87);
+    transition: all .4s ease-in-out;
+}
+
+.notePadFormBtn:disabled,
+.notePadFormBtn[disabled] {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+}
