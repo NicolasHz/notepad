@@ -12,9 +12,6 @@ class Layout extends Component {
 
     constructor(props) {
         super();
-        this.state = {
-            notes: props.notes
-        }
     }
 
     componentDidMount() {
@@ -33,17 +30,17 @@ class Layout extends Component {
                 }, 2000);
             }, 3000);
         }, 2000);
-
     }
+
 
     render() {
         return <Auxiliar>
             <div className={classes.Layout}>
-                {this.props.children}
                 <NotePad/>
                 <div className={classes.NotePadButtonWrapper}>
                     <NotePadButton toggleNotePad={()=> {this.props.showNotepad? this.props.onHideNotepad() : this.props.onShowNotepad()}}/>
                 </div>
+                {this.props.children}
             </div>
         </Auxiliar>
     }

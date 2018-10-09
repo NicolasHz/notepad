@@ -13,6 +13,7 @@
     border-radius: 50%;
     outline: none;
     transition: all 0.2s ease-in-out;
+    z-index: 250;
 }
 
 @media (min-width: 800px) {
