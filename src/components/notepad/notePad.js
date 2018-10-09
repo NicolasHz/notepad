@@ -48,7 +48,7 @@ class NotePad extends Component {
                         <div className={classes.NotePadList}>
                             <NoteList deleteNote={(noteId) => this.props.onRemoveNote(noteId)} notes={this.state.notes} />
                         </div>
-                        <div className={classes.NoteFormWrapper}>
+                        <div className={classes.NotePadFormWrapper}>
                             <NotepadForm onAddNoteHandler={(note) => { this.props.onAddNote(note) }} />
                         </div>
                     </div>

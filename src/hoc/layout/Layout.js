@@ -24,15 +24,12 @@ class Layout extends Component {
 
 const mapStateToProps = state => {
     return {
-        notes: state.notesState.notes,
         showNotepad: state.UIState.show
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAddNote: (noteToAdd) => dispatch(actions.addNote(noteToAdd)),
-        onRemoveNote: (noteId) => dispatch(actions.removeNote(noteId)),
         onShowNotepad: () => dispatch(actions.showNotePad()),
         onHideNotepad: () => dispatch(actions.hideNotePad())
     }
