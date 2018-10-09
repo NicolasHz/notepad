@@ -26,17 +26,6 @@
     transition: all .4s ease-in-out;
 }
 
-.notePadFormBtn:after {
-    content: "";
-    position: absolute;
-    border-bottom: 20px solid transparent;
-    border-top: 20px solid transparent;
-    height: 0px;
-    width: 0px;
-    margin-right: -20px;
-    right: 0; 
-  }
-
 .notePadFormBtn:disabled,
 .notePadFormBtn[disabled] {
     border: 1px solid #999999;
