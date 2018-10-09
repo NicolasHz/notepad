@@ -45,8 +45,21 @@ class NotepadForm extends Component {
 
     submitNoteHandler = (event) => {
         event.preventDefault()
-        const note = {message: this.state.notePadForm.message.value, id: Date.now()};
+        const note = { message: this.state.notePadForm.message.value, id: Date.now() };
         this.props.onAddNoteHandler(note);
+        this.setState(prevState => ({
+            ...prevState,
+            notePadForm: {
+                ...prevState.notePadForm,
+                message: {
+                    ...prevState.notePadForm.message,
+                    value: '',
+                    valid: false,
+                    touched: false,
+                }
+            },
+            formIsValid: false
+        }));
     }
 
     render() {
@@ -58,7 +71,7 @@ class NotepadForm extends Component {
             });
         }
         let form = (
-            <form onSubmit={(event) => {this.submitNoteHandler(event)}} className={classes.NotePadForm}>
+            <form onSubmit={(event) => { this.submitNoteHandler(event) }} className={classes.NotePadForm}>
                 {formElementsArray.map(formElement => (
                     <Input
                         key={formElement.id}

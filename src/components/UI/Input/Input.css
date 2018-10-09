@@ -5,10 +5,16 @@
     font-family: 'Lato', Calibri, Arial, sans-serif;
 }
 
+input {
+    border: 0px solid transparent;
+    background-color: transparent;
+    transition: all .4s ease-in-out;
+}
+
 .Label {
     font-size: .8em;
     color: black;
-    font-weight: bold;
+    font-weight: 600;
     display: block;
     margin-bottom: 8px;
     position: absolute;
@@ -39,6 +45,6 @@
 }
 
 .Invalid {
-    border: 1px solid red;
-    background-color: #FDA49A;
+    border: 1px solid #ff6c6c;
+    background-color: #f6cdc9;
 }

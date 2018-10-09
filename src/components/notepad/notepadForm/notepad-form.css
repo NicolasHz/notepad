@@ -22,7 +22,8 @@
     font-weight: 400;
     outline: none;
     font-size: 75%;
-    background: #ed8151;
+    background: rgba(0, 0, 117, 0.87);
+    transition: all .4s ease-in-out;
 }
 
 .notePadFormBtn:after {
