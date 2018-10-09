@@ -36,19 +36,13 @@ class Layout extends Component {
 
     }
 
-    componentWillReceiveProps(newProps) {
-        setTimeout(() => {
-            this.setState({ notes: newProps.notes })
-        }, 1000);
-    }
-
     render() {
         return <Auxiliar>
             <div className={classes.Layout}>
                 {this.props.children}
                 <NotePad/>
                 <div className={classes.NotePadButtonWrapper}>
-                    <NotePadButton />
+                    <NotePadButton toggleNotePad={()=> {this.props.showNotepad? this.props.onHideNotepad() : this.props.onShowNotepad()}}/>
                 </div>
             </div>
         </Auxiliar>
@@ -57,14 +51,17 @@ class Layout extends Component {
 
 const mapStateToProps = state => {
     return {
-        notes: state.notesState.notes
+        notes: state.notesState.notes,
+        showNotepad: state.UIState.show
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         onAddNote: (noteToAdd) => dispatch(actions.addNote(noteToAdd)),
-        onRemoveNote: (noteId) => dispatch(actions.removeNote(noteId))
+        onRemoveNote: (noteId) => dispatch(actions.removeNote(noteId)),
+        onShowNotepad: () => dispatch(actions.showNotePad()),
+        onHideNotepad: () => dispatch(actions.hideNotePad())
     }
 }
 

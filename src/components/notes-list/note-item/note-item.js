@@ -9,12 +9,13 @@ const noteItem = (props) => {
     };
     return (
             <CSSTransition 
-                appear ={ true}
+                appear={true}
                 mountOnEnter
                 unmountOnExit
                 in={props.in}
                 timeout={animationTiming}
                 classNames={{
+                    appear: props.animation? classes[props.animation.enter] : classes.enter,
                     enter: props.animation? classes[props.animation.enter] : classes.enter,
                     enterActive: props.animation? classes[props.animation.entered] : classes.entered,
                     enterDone: props.animation? classes[props.animation.show] : classes.show,

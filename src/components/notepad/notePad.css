@@ -5,6 +5,7 @@
     position: fixed;
     bottom: 7em;
     overflow-y: scroll;
+    overflow-x: hidden;
     padding: 1em;
     border-radius: 5px;
     right: 10%;

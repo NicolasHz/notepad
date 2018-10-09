@@ -16,11 +16,11 @@ class NotePad extends Component {
         };
         this.state = { show: false }
     }
-
-    componentDidMount() {
+    
+    componentWillReceiveProps(newProps) {
         setTimeout(() => {
-            this.setState({ show: true })
-        }, 5000);
+            this.setState({ notes: newProps.notes })
+        }, 1000);
     }
 
     render() {
@@ -28,7 +28,7 @@ class NotePad extends Component {
             <CSSTransition
                 mountOnEnter
                 unmountOnExit
-                in={this.state.show}
+                in={this.props.showNotepad}
                 timeout={this.animationTiming}
                 classNames={{
                     enter: this.props.animation ? classes[this.props.animation.enter] : classes.enter,
@@ -46,7 +46,8 @@ class NotePad extends Component {
 
 const mapStateToProps = state => {
     return {
-        notes: state.notesState.notes
+        notes: state.notesState.notes,
+        showNotepad: state.UIState.show
     }
 }
 

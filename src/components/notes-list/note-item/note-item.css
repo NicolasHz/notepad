@@ -20,9 +20,9 @@
 }
 
 .Note p {
-    height: 30px;
     line-height: 27px;
-    margin: auto 20px;
+    margin: 1em 20px;
+    max-width: 60%;
 }
 
 .Delete {
@@ -30,7 +30,7 @@
     position: absolute;
     right: 24px;
     width: 32px;
-    height: 50%;
+    height: 32px;
     opacity: 0.3;
 }
 
@@ -70,7 +70,8 @@
 }
 
 .Note.show {
-    height: 64px;
+    min-height: 64px;
+    height: auto;
 }
 
 .Note.hide,
