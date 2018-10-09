@@ -4,7 +4,10 @@ import * as classes from './Layout.css'
 // Redux
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
-import NotePadButton from '../../components/UI/buttons/notePadButton'
+// Components
+import NotePadButton from '../../components/UI/buttons/notePadButton/notePadButton'
+import NotePad from '../../components/notepad/notePad'
+
 class Layout extends Component {
 
     constructor(props) {
@@ -43,6 +46,7 @@ class Layout extends Component {
         return <Auxiliar>
             <div className={classes.Layout}>
                 {this.props.children}
+                <NotePad/>
                 <div className={classes.NotePadButtonWrapper}>
                     <NotePadButton />
                 </div>

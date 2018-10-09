@@ -8,7 +8,8 @@ const noteItem = (props) => {
         exit: props.exitTime || 400
     };
     return (
-            <CSSTransition
+            <CSSTransition 
+                appear ={ true}
                 mountOnEnter
                 unmountOnExit
                 in={props.in}
