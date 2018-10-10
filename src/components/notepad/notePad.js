@@ -56,7 +56,7 @@ class NotePad extends Component {
                         exit: this.props.animation ? classes[this.props.animation.hide] : classes.hide
                     }}>
                     <div className={classes.NotePad}>
-                        <div className={classes.NotePadList} ref={this.NotePadListRef}>
+                        <div className={classes.NotePadListWrapper} ref={this.NotePadListRef}>
                             <NoteList deleteNote={(noteId) => this.props.onRemoveNote(noteId)} notes={this.state.notes} />
                         </div>
                         <div className={classes.NotePadFormWrapper}>

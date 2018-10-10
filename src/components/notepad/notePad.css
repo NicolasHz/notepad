@@ -26,7 +26,7 @@
     clear: both;
 }
 
-.NotePadList {
+.NotePadListWrapper {
     overflow-y: auto;
     overflow-x: hidden;
     height: 90%;
@@ -58,15 +58,15 @@
     animation: leave .8s ease-out;
 }
 
-.NotePadList::-webkit-scrollbar {
+.NotePadListWrapper::-webkit-scrollbar {
     width: .8em;
 }
 
-.NotePadList::-webkit-scrollbar-track {
+.NotePadListWrapper::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
-.NotePadList::-webkit-scrollbar-thumb {
+.NotePadListWrapper::-webkit-scrollbar-thumb {
     background-color: darkgrey;
     outline: 1px solid slategrey;
 }
