@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Route, Redirect, withRouter } from 'react-router-dom';
-import classes from './App.css';
 // Lazy loader
 import asyncComponent from './hoc/asyncComponent/asyncComponent';
 // Containers

@@ -6,11 +6,11 @@ import * as actions from '../../store/actions/index';
 import CSSTransition from "react-transition-group/CSSTransition";
 // Components
 import Auxiliar from '../../hoc/auxiliar/auxiliar';
-import NoteList from '../notes-list/note-list'
 import NotepadForm from './notepadForm/notepad-form';
+import NoteList from '../../components/notes-list/note-list';
 // Utility
 import { delayedProps } from '../../shared/utility';
-import Backdrop from '../UI/backdrop/backdrop';
+import Backdrop from '../../components/UI/backdrop/backdrop';
 
 class NotePad extends Component {
 
