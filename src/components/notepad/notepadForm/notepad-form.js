@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { updateObject, checkValidity } from '../../../shared/utility';
+import { updateObject, checkValidity, capitalizeFirstLetter } from '../../../shared/utility';
 import Input from '../../UI/input/input'
 import * as classes from './notepad-form.css'
 
@@ -15,7 +15,8 @@ class NotepadForm extends Component {
                 value: '',
                 validation: {
                     required: true,
-                    maxLength: 100
+                    maxLength: 100,
+                    containEmoji: true
                 },
                 valid: false,
                 touched: false,
@@ -45,7 +46,10 @@ class NotepadForm extends Component {
 
     submitNoteHandler = (event) => {
         event.preventDefault()
-        const note = { message: this.state.notePadForm.message.value, id: Date.now() };
+        const note = {
+            message: capitalizeFirstLetter(this.state.notePadForm.message.value),
+            id: Date.now()
+        };
         this.props.onAddNoteHandler(note);
         this.setState(prevState => ({
             ...prevState,
@@ -84,7 +88,7 @@ class NotepadForm extends Component {
                         label={formElement.config.label}
                         changed={(event) => this.inputChangedHandler(event, formElement.id)} />
                 ))}
-                <button className={classes.notePadFormBtn} disabled={!this.state.formIsValid}>Add</button>
+                <button className={classes.notePadFormBtn} disabled={!this.state.formIsValid}>Add Note</button>
             </form>
         );
         return form;

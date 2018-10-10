@@ -24,10 +24,21 @@ class NotePad extends Component {
             show: false,
             notes: []
         }
+        this.NotePadListRef = React.createRef();
     }
 
     componentWillReceiveProps(newProps) {
         delayedProps.call(this, newProps, 1000)
+    }
+
+    componentDidUpdate(prevState){
+        prevState.notes.length === this.state.notes.length &&
+        setTimeout(() => {
+            this.NotePadListRef.current && this.NotePadListRef.current.scrollTo({
+                top: this.NotePadListRef.current.scrollHeight,
+                behavior: "smooth"
+            });
+        }, 200);
     }
 
     render() {
@@ -45,10 +56,10 @@ class NotePad extends Component {
                         exit: this.props.animation ? classes[this.props.animation.hide] : classes.hide
                     }}>
                     <div className={classes.NotePad}>
-                        <div className={classes.NotePadList}>
+                        <div className={classes.NotePadListWrapper} ref={this.NotePadListRef}>
                             <NoteList deleteNote={(noteId) => this.props.onRemoveNote(noteId)} notes={this.state.notes} />
                         </div>
-                        <div className={classes.NoteFormWrapper}>
+                        <div className={classes.NotePadFormWrapper}>
                             <NotepadForm onAddNoteHandler={(note) => { this.props.onAddNote(note) }} />
                         </div>
                     </div>

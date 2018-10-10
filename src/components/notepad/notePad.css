@@ -13,17 +13,31 @@
     background: white;
 }
 
-.NotePadList {
+.NotePad::after{
+    content: '';
+    position: absolute;
+    right: 22%;
+    bottom: -25px;
+    width: 0;
+    height: 0;
+    transform: rotate(-15deg);
+    border-left: 30px solid transparent;
+    border-top: 30px solid white;
+    clear: both;
+}
+
+.NotePadListWrapper {
     overflow-y: auto;
     overflow-x: hidden;
     height: 90%;
     width: 100%;
 }
 
-.NoteFormWrapper {
+.NotePadFormWrapper {
     width: 100%;
     background: white;
     border-radius: 5px;
+    overflow: hidden;
 }
 
 .NotePad.enter {
@@ -44,15 +58,15 @@
     animation: leave .8s ease-out;
 }
 
-.NotePadList::-webkit-scrollbar {
+.NotePadListWrapper::-webkit-scrollbar {
     width: .8em;
 }
 
-.NotePadList::-webkit-scrollbar-track {
+.NotePadListWrapper::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
-.NotePadList::-webkit-scrollbar-thumb {
+.NotePadListWrapper::-webkit-scrollbar-thumb {
     background-color: darkgrey;
     outline: 1px solid slategrey;
 }
@@ -135,5 +149,97 @@
     }
 }
 
+@keyframes leaveDeskt {
+    0% {
+        opacity: 1;
+        height: 50%;
+        width: 50%;
+    }
 
-@media (min-width: 800px) {}
+    20% {
+        opacity: 1;
+        height: 30%;
+        width: 50%;
+
+    }
+
+    40% {
+        opacity: .8;
+        height: 20%;
+        width: 50%;
+
+    }
+
+    60% {
+        opacity: .6;
+        height: 10%;
+        width: 50%;
+    }
+
+    80% {
+        opacity: .4;
+        height: 5%;
+        width: 50%;
+    }
+
+    100% {
+        opacity: 0;
+        height: 5%;
+        width: 10%;
+    }
+}
+
+@keyframes growDeskt {
+    0% {
+        opacity: 0;
+        height: 5%;
+        width: 35%;
+    }
+
+    20% {
+        opacity: .2;
+        height: 5%;
+        width: 40%;
+    }
+
+    40% {
+        opacity: .7;
+        height: 5%;
+        width: 45%;
+    }
+
+    60% {
+        opacity: .9;
+        height: 5%;
+        width: 50%;
+    }
+
+    80% {
+        opacity: 1;
+        height: 5%;
+        width: 50%;
+    }
+
+    100% {
+        opacity: 1;
+        height: 50%;
+        width: 50%;
+    }
+}
+
+@media (min-width: 800px) {
+    .NotePad.hide {
+        animation: leaveDeskt .8s ease-out;
+    }
+    .NotePad.entered {
+        opacity: 1;
+        animation: growDeskt .6s ease-out;
+    }
+    .NotePad {
+        right: 5%;
+    }
+    .NotePad.show {
+        height: 50%;
+        width: 50%;
+    }
+}
