@@ -15,7 +15,8 @@ class NotepadForm extends Component {
                 value: '',
                 validation: {
                     required: true,
-                    maxLength: 100
+                    maxLength: 100,
+                    containEmoji: true
                 },
                 valid: false,
                 touched: false,
@@ -87,7 +88,7 @@ class NotepadForm extends Component {
                         label={formElement.config.label}
                         changed={(event) => this.inputChangedHandler(event, formElement.id)} />
                 ))}
-                <button className={classes.notePadFormBtn} disabled={!this.state.formIsValid}>Add</button>
+                <button className={classes.notePadFormBtn} disabled={!this.state.formIsValid}>Add Note</button>
             </form>
         );
         return form;
