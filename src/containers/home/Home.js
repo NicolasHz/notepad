@@ -23,7 +23,7 @@ class Home extends Component {
 
     render() {
         return (<Auxiliar>
-            <NoteList deleteNote={(noteId) => this.props.onRemoveNote(noteId)} notes={this.state.notes} />
+            <NoteList showNoteErrors deleteNote={(noteId) => this.props.onRemoveNote(noteId)} notes={this.state.notes} />
         </Auxiliar>)
     }
 }

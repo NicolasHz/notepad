@@ -38,7 +38,7 @@ class NotePad extends Component {
                 top: this.NotePadListRef.current.scrollHeight,
                 behavior: "smooth"
             });
-        }, 200);
+        }, 800);
     }
 
     render() {
@@ -55,9 +55,9 @@ class NotePad extends Component {
                         enterDone: this.props.animation ? classes[this.props.animation.show] : classes.show,
                         exit: this.props.animation ? classes[this.props.animation.hide] : classes.hide
                     }}>
-                    <div className={classes.NotePad}>
+                    <div className={classes.NotePad} style={{top: this.props.top || "unset", right: this.props.right || "10%", bottom: this.props.bottom || "7em", left: this.props.left || "unset"}}>
                         <div className={classes.NotePadListWrapper} ref={this.NotePadListRef}>
-                            <NoteList deleteNote={(noteId) => this.props.onRemoveNote(noteId)} notes={this.state.notes} />
+                            <NoteList showNoteErrors deleteNote={(noteId) => this.props.onRemoveNote(noteId)} notes={this.state.notes} />
                         </div>
                         <div className={classes.NotePadFormWrapper}>
                             <NotepadForm onAddNoteHandler={(note) => { this.props.onAddNote(note) }} />

@@ -11,11 +11,10 @@ const asyncHome = asyncComponent(() => {
 
 class App extends Component {
   render() {
-    const redirect = (this.props.location.pathname === '/home' ? null : <Redirect to="/home" />)
     return (
       <Layout>
         <Route path="/home" exact component={asyncHome} />
-        {redirect}
+        {this.props.location.pathname !== '/home' && <Redirect to="/home" />}
       </Layout>
     );
   }

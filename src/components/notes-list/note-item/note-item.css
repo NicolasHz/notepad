@@ -5,15 +5,13 @@
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    text-align: center;
-    height: 0px;
     min-height: 0px;
-    max-height: 200px;
+    max-height: 0px;
     margin: .5em 0;
     position: relative;
     width: 100%;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: all 0.4s cubic-bezier(.36, -0.64, .34, 1.76);
+    transition: all .4s cubic-bezier(.36, -0.64, .34, 1.76);
 }
 
 .Note:hover {
@@ -23,8 +21,42 @@
 .Note p {
     line-height: 27px;
     margin: 1em 20px;
-    max-width: 60%;
+    max-width: 70%;
+    text-align: center;
     word-break: break-word;
+    transition: all 0.2s ease-in-out;
+}
+
+.Note.enter {
+    opacity: 0;
+    height: auto;
+    transform: rotateX(-90deg);
+}
+
+.Note.enter p {
+    opacity: 0;
+    max-height: 1000px;
+}
+
+
+.Note.entered {
+    opacity: 1;
+    min-height: 64px;
+    max-height: 1000px;
+    transform: none;
+}
+
+.Note.show {
+    min-height: 64px;
+    max-height: 1000px;
+}
+
+.Note.hide,
+.Note.hide p {
+    opacity: 0;
+    margin: 0;
+    transform: rotateX(-90deg);
+    transition: all .4s ease-out;
 }
 
 .Delete {
@@ -58,34 +90,80 @@
     transform: rotate(-45deg);
 }
 
-
-.Note.swingEnter {
-    opacity: 0;
-    transform: rotateX(-90deg);
+.NoteErrors {
+    width: 80%;
+    border-radius: 5px;
+    border: 1px solid;
+    min-height: 0px;
+    max-height: 200px;
+    height: 0;
+    position: relative;
+    background: white;
+    transition: all .3s cubic-bezier(.36, -0.64, .34, 1.76);
 }
 
-.Note.swingEntered {
+.NoteErrors p{
+    text-align: left;
+    line-height: 27px;
+    min-height: 0px;
+    max-height: 0px;
+    word-break: break-word;
+    transition: all .3s cubic-bezier(.36, -0.64, .34, 1.76);
+}
+
+.NoteErrors.enter {
+    opacity: 0;
+    max-height: 200px;
+    margin: 0;
+}
+
+.NoteErrors.enter p {
+    opacity: 0;
+    max-height: 200px;
+    height: 0;
+}
+
+.NoteErrors.entered p {
+    height: auto;
+    opacity: 1;
+    margin: 1em 20px;
+}
+
+.NoteErrors.entered{
+    height: auto;
     opacity: 1;
     min-height: 64px;
-    transform: none;
-    transition: all 0.4s cubic-bezier(.36, -0.64, .34, 1.76);
+    max-height: 200px
 }
 
-.Note.show {
+.NoteErrors.show p{
+    height: auto;
+    margin: 1em 20px;
+    max-height: 200px;
+}
+
+.NoteErrors.show {
     min-height: 64px;
+    max-height: 200px;
     height: auto;
 }
 
-.Note.swingHide,
-.Note.swingHide p {
+.NoteErrors.hide p{
     opacity: 0;
-    margin: 0;
-    transform: rotateX(-90deg);
-    transition: all 0.8s cubic-bezier(.36, -0.64, .34, 1.76);
+    margin: 0 20px;
 }
+
+.NoteErrors.hide {
+    opacity: 0;
+    margin: 0; 
+}
+
 
 @media (min-width: 800px) {
     .Note {
         width: 600px;
+    }
+    .NoteErrors{
+        width: 400px;
     }
 }
