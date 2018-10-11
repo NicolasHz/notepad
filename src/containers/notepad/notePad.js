@@ -42,7 +42,6 @@ class NotePad extends Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             <Auxiliar>
                 <CSSTransition
