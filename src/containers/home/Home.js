@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Auxiliar from '../../hoc/auxiliar/auxiliar'
 // Redux
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
@@ -18,13 +17,11 @@ class Home extends Component {
     }
 
     componentWillReceiveProps(newProps) {
-        delayedProps.call(this,newProps,2000)
+        delayedProps.call(this, newProps, 2000)
     }
 
     render() {
-        return (<Auxiliar>
-            <NoteList showNoteErrors deleteNote={(noteId) => this.props.onRemoveNote(noteId)} notes={this.state.notes} />
-        </Auxiliar>)
+        return <NoteList showNoteErrors deleteNote={(noteId) => this.props.onRemoveNote(noteId)} notes={this.state.notes} />
     }
 }
 

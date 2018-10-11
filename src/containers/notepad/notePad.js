@@ -31,17 +31,18 @@ class NotePad extends Component {
         delayedProps.call(this, newProps, 1000)
     }
 
-    componentDidUpdate(prevState){
+    componentDidUpdate(prevState) {
         prevState.notes.length === this.state.notes.length &&
-        setTimeout(() => {
-            this.NotePadListRef.current && this.NotePadListRef.current.scrollTo({
-                top: this.NotePadListRef.current.scrollHeight,
-                behavior: "smooth"
-            });
-        }, 800);
+            setTimeout(() => {
+                this.NotePadListRef.current && this.NotePadListRef.current.scrollTo({
+                    top: this.NotePadListRef.current.scrollHeight,
+                    behavior: "smooth"
+                });
+            }, 800);
     }
 
     render() {
+        console.log(this.props)
         return (
             <Auxiliar>
                 <CSSTransition
@@ -55,7 +56,7 @@ class NotePad extends Component {
                         enterDone: this.props.animation ? classes[this.props.animation.show] : classes.show,
                         exit: this.props.animation ? classes[this.props.animation.hide] : classes.hide
                     }}>
-                    <div className={classes.NotePad} style={{top: this.props.top || "unset", right: this.props.right || "10%", bottom: this.props.bottom || "7em", left: this.props.left || "unset"}}>
+                    <div className={classes.NotePad} style={{ top: this.props.top || "unset", right: this.props.right || "5vmax;", bottom: this.props.bottom || "7em", left: this.props.left || "unset" }}>
                         <div className={classes.NotePadListWrapper} ref={this.NotePadListRef}>
                             <NoteList showNoteErrors deleteNote={(noteId) => this.props.onRemoveNote(noteId)} notes={this.state.notes} />
                         </div>

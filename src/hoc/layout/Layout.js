@@ -12,9 +12,9 @@ class Layout extends Component {
     render() {
         return <Auxiliar>
             <div className={classes.Layout}>
-                <NotePad/>
+                <NotePad />
                 <div className={classes.NotePadButtonWrapper}>
-                    <NotePadButton toggleNotePad={()=> {this.props.showNotepad? this.props.onHideNotepad() : this.props.onShowNotepad()}}/>
+                    <NotePadButton toggleNotePad={() => { this.props.showNotepad ? this.props.onHideNotepad() : this.props.onShowNotepad() }} />
                 </div>
                 {this.props.children}
             </div>

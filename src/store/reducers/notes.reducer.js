@@ -24,7 +24,6 @@ const addNote = (state, action) => {
                 containEmoji: true
             })
     }
-    console.log(newNote)
     const updatedNotes = {
         notes: state.notes.concat(newNote),
     }

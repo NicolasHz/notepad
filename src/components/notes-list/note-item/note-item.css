@@ -95,8 +95,7 @@
     border-radius: 5px;
     border: 1px solid;
     min-height: 0px;
-    max-height: 200px;
-    height: 0;
+    max-height: 0px;
     position: relative;
     background: white;
     transition: all .3s cubic-bezier(.36, -0.64, .34, 1.76);
@@ -113,39 +112,33 @@
 
 .NoteErrors.enter {
     opacity: 0;
-    max-height: 200px;
     margin: 0;
 }
 
 .NoteErrors.enter p {
     opacity: 0;
-    max-height: 200px;
-    height: 0;
-}
-
-.NoteErrors.entered p {
-    height: auto;
-    opacity: 1;
-    margin: 1em 20px;
+    margin: 0em 20px;
 }
 
 .NoteErrors.entered{
-    height: auto;
     opacity: 1;
     min-height: 64px;
     max-height: 200px
 }
 
-.NoteErrors.show p{
-    height: auto;
+.NoteErrors.entered p {
+    opacity: 1;
     margin: 1em 20px;
-    max-height: 200px;
 }
 
 .NoteErrors.show {
     min-height: 64px;
     max-height: 200px;
-    height: auto;
+}
+
+.NoteErrors.show p{
+    margin: 1em 20px;
+    max-height: 200px;
 }
 
 .NoteErrors.hide p{
