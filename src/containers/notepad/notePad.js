@@ -56,7 +56,7 @@ class NotePad extends Component {
                         enterDone: this.props.animation ? classes[this.props.animation.show] : classes.show,
                         exit: this.props.animation ? classes[this.props.animation.hide] : classes.hide
                     }}>
-                    <div className={classes.NotePad} style={{ top: this.props.top || "unset", right: this.props.right || "5vmax;", bottom: this.props.bottom || "7em", left: this.props.left || "unset" }}>
+                    <div className={classes.NotePad} style={{ top: this.props.top || "unset", right: this.props.right || "5vmax", bottom: this.props.bottom || "7em", left: this.props.left || "unset" }}>
                         <div className={classes.NotePadListWrapper} ref={this.NotePadListRef}>
                             <NoteList showNoteErrors deleteNote={(noteId) => this.props.onRemoveNote(noteId)} notes={this.state.notes} />
                         </div>
