@@ -4,8 +4,8 @@ import * as types from '../actions/actionTypes.actions'
 describe('notepad reducer', () => {
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual({
-        show: false
-      })
+      show: false
+    })
   })
 
   it('should handle SHOW_NOTEPAD', () => {
@@ -14,20 +14,17 @@ describe('notepad reducer', () => {
         type: types.SHOW_NOTEPAD
       })
     ).toEqual({
-        show: true
-      })
+      show: true
+    })
 
     expect(
-      reducer(
-          {
-            show: false
-          },
-        {
-          type: types.SHOW_NOTEPAD
-        }
-      )
+      reducer({
+        show: false
+      }, {
+        type: types.SHOW_NOTEPAD
+      })
     ).toEqual({
-        show: true
+      show: true
     })
   })
   it('should handle HIDE_NOTEPAD', () => {
@@ -36,20 +33,17 @@ describe('notepad reducer', () => {
         type: types.HIDE_NOTEPAD
       })
     ).toEqual({
-        show: false
-      })
+      show: false
+    })
 
     expect(
-      reducer(
-          {
-            show: true
-          },
-        {
-          type: types.HIDE_NOTEPAD
-        }
-      )
+      reducer({
+        show: true
+      }, {
+        type: types.HIDE_NOTEPAD
+      })
     ).toEqual({
-        show: false
+      show: false
     })
   })
 })
