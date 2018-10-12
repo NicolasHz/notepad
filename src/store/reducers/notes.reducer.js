@@ -2,7 +2,7 @@ import * as actionTypes from '../actions/actionTypes.actions';
 import {
     updateObject,
     capitalizeFirstLetter,
-    noteErrors
+    hasErrors
 } from '../../shared/utility';
 
 const initialState = {
@@ -17,7 +17,7 @@ const addNote = (state, action) => {
     const newNote = {
         message: capitalizeFirstLetter(action.note.message),
         id: action.note.id,
-        errors: noteErrors(
+        errors: hasErrors(
             action.note.message, {
                 required: true,
                 maxLength:100,

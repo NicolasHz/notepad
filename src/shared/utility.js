@@ -36,7 +36,7 @@ export const checkValidity = (value, rules) => {
     return valid;
 }
 
-function hasEmoji(str) {
+export function hasEmoji(str) {
     const ranges = [
         '\ud83c[\udf00-\udfff]',
         '\ud83d[\udc00-\ude4f]',
@@ -49,7 +49,7 @@ export function capitalizeFirstLetter(string) {
     return string.trim().charAt(0).toUpperCase() + string.trim().slice(1);
 }
 
-export function noteErrors(str, rules) {
+export function hasErrors(str, rules) {
     const errors = [];
     if (!rules) {
         return errors;
