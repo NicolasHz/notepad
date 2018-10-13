@@ -6,7 +6,7 @@ import * as actions from '../../store/actions/index';
 import NoteList from '../../components/notes-list/note-list'
 // Utility
 import { delayedProps } from '../../shared/utility';
-class Home extends Component {
+export class Home extends Component {
 
     state = {
         notes: []

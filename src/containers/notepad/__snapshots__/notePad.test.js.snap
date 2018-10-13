@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notepad works should change with a new note 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "bottom": "7em",
+        "left": "unset",
+        "right": "5vmax",
+        "top": "unset",
+      }
+    }
+  >
+    <div>
+      <div
+        className=" "
+      />
+    </div>
+    <div>
+      <form
+        onSubmit={[Function]}
+      >
+        <div>
+          <label
+            className=""
+          >
+            
+          </label>
+          <input
+            className=""
+            onChange={[Function]}
+            placeholder="Your note here"
+            type="text"
+            value=""
+          />
+        </div>
+        <button
+          disabled={false}
+        >
+          Add Note
+        </button>
+      </form>
+    </div>
+  </div>,
+  <div
+    onClick={[Function]}
+  />,
+]
+`;
+
+exports[`Notepad works should change with a new note 2`] = `
+Array [
+  <div
+    style={
+      Object {
+        "bottom": "7em",
+        "left": "unset",
+        "right": "5vmax",
+        "top": "unset",
+      }
+    }
+  >
+    <div>
+      <div
+        className=" "
+      >
+        <div>
+          <p>
+            Remember buy carrots?
+          </p>
+          <span
+            onClick={[Function]}
+          />
+        </div>
+        <div />
+      </div>
+    </div>
+    <div>
+      <form
+        onSubmit={[Function]}
+      >
+        <div>
+          <label
+            className=""
+          >
+            
+          </label>
+          <input
+            className=""
+            onChange={[Function]}
+            placeholder="Your note here"
+            type="text"
+            value=""
+          />
+        </div>
+        <button
+          disabled={false}
+        >
+          Add Note
+        </button>
+      </form>
+    </div>
+  </div>,
+  <div
+    onClick={[Function]}
+  />,
+]
+`;

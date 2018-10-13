@@ -12,7 +12,7 @@ import NoteList from '../../components/notes-list/note-list';
 import { delayedProps } from '../../shared/utility';
 import Backdrop from '../../components/UI/backdrop/backdrop';
 
-class NotePad extends Component {
+export class NotePad extends Component {
 
     constructor(props) {
         super();
@@ -21,8 +21,8 @@ class NotePad extends Component {
             exit: props.exitTime || 800
         };
         this.state = {
-            show: false,
-            notes: []
+            showNotepad: props.showNotepad,
+            notes: props.notes
         }
         this.NotePadListRef = React.createRef();
     }
@@ -47,7 +47,7 @@ class NotePad extends Component {
                 <CSSTransition
                     mountOnEnter
                     unmountOnExit
-                    in={this.props.showNotepad}
+                    in={this.state.showNotepad}
                     timeout={this.animationTiming}
                     classNames={{
                         enter: this.props.animation ? classes[this.props.animation.enter] : classes.enter,
@@ -64,7 +64,7 @@ class NotePad extends Component {
                         </div>
                     </div>
                 </CSSTransition>
-                {this.props.showNotepad && <Backdrop clicked={() => { this.props.onHideNotepad() }} />}
+                {this.state.showNotepad && <Backdrop clicked={() => { this.props.onHideNotepad() }} />}
             </Auxiliar>
         )
     }

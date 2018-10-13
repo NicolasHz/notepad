@@ -72,10 +72,10 @@ export function delayedProps(props, delay) {
     props.notes.length > this.state.notes.length ?
         setTimeout(() => {
             this.setState({
-                notes: props.notes
+                ...props
             })
         }, delay) :
         this.setState({
-            notes: props.notes
+            ...props
         });
 }
