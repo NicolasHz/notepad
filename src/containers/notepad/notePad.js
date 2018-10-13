@@ -6,13 +6,13 @@ import * as actions from '../../store/actions/index';
 import CSSTransition from "react-transition-group/CSSTransition";
 // Components
 import Auxiliar from '../../hoc/auxiliar/auxiliar';
-import NoteList from '../notes-list/note-list'
 import NotepadForm from './notepadForm/notepad-form';
+import NoteList from '../../components/notes-list/note-list';
 // Utility
 import { delayedProps } from '../../shared/utility';
-import Backdrop from '../UI/backdrop/backdrop';
+import Backdrop from '../../components/UI/backdrop/backdrop';
 
-class NotePad extends Component {
+export class NotePad extends Component {
 
     constructor(props) {
         super();
@@ -21,8 +21,8 @@ class NotePad extends Component {
             exit: props.exitTime || 800
         };
         this.state = {
-            show: false,
-            notes: []
+            showNotepad: props.showNotepad,
+            notes: props.notes
         }
         this.NotePadListRef = React.createRef();
     }
@@ -31,14 +31,14 @@ class NotePad extends Component {
         delayedProps.call(this, newProps, 1000)
     }
 
-    componentDidUpdate(prevState){
+    componentDidUpdate(prevState) {
         prevState.notes.length === this.state.notes.length &&
-        setTimeout(() => {
-            this.NotePadListRef.current && this.NotePadListRef.current.scrollTo({
-                top: this.NotePadListRef.current.scrollHeight,
-                behavior: "smooth"
-            });
-        }, 200);
+            setTimeout(() => {
+                this.NotePadListRef.current && this.NotePadListRef.current.scrollTo({
+                    top: this.NotePadListRef.current.scrollHeight,
+                    behavior: "smooth"
+                });
+            }, 800);
     }
 
     render() {
@@ -47,7 +47,7 @@ class NotePad extends Component {
                 <CSSTransition
                     mountOnEnter
                     unmountOnExit
-                    in={this.props.showNotepad}
+                    in={this.state.showNotepad}
                     timeout={this.animationTiming}
                     classNames={{
                         enter: this.props.animation ? classes[this.props.animation.enter] : classes.enter,
@@ -55,16 +55,16 @@ class NotePad extends Component {
                         enterDone: this.props.animation ? classes[this.props.animation.show] : classes.show,
                         exit: this.props.animation ? classes[this.props.animation.hide] : classes.hide
                     }}>
-                    <div className={classes.NotePad}>
+                    <div className={classes.NotePad} style={{ top: this.props.top || "unset", right: this.props.right || "5vmax", bottom: this.props.bottom || "7em", left: this.props.left || "unset" }}>
                         <div className={classes.NotePadListWrapper} ref={this.NotePadListRef}>
-                            <NoteList deleteNote={(noteId) => this.props.onRemoveNote(noteId)} notes={this.state.notes} />
+                            <NoteList showNoteErrors deleteNote={(noteId) => this.props.onRemoveNote(noteId)} notes={this.state.notes} />
                         </div>
                         <div className={classes.NotePadFormWrapper}>
                             <NotepadForm onAddNoteHandler={(note) => { this.props.onAddNote(note) }} />
                         </div>
                     </div>
                 </CSSTransition>
-                {this.props.showNotepad && <Backdrop clicked={() => { this.props.onHideNotepad() }} />}
+                {this.state.showNotepad && <Backdrop clicked={() => { this.props.onHideNotepad() }} />}
             </Auxiliar>
         )
     }

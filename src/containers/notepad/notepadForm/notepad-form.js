@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { updateObject, checkValidity, capitalizeFirstLetter } from '../../../shared/utility';
-import Input from '../../UI/input/input'
+import { updateObject, checkValidity } from '../../../shared/utility';
+import Input from '../../../components/UI/input/input';
 import * as classes from './notepad-form.css'
 
 class NotepadForm extends Component {
@@ -13,17 +13,13 @@ class NotepadForm extends Component {
                     placeholder: 'Your note here'
                 },
                 value: '',
-                validation: {
-                    required: true,
-                    maxLength: 100,
-                    containEmoji: true
-                },
+                validation: {},// here you could add validation...
                 valid: false,
                 touched: false,
                 label: ''
             }
         },
-        formIsValid: false
+        formIsValid: true
     }
 
     inputChangedHandler = (event, inputIdentifier) => {
@@ -47,7 +43,7 @@ class NotepadForm extends Component {
     submitNoteHandler = (event) => {
         event.preventDefault()
         const note = {
-            message: capitalizeFirstLetter(this.state.notePadForm.message.value),
+            message: this.state.notePadForm.message.value.trim(),
             id: Date.now()
         };
         this.props.onAddNoteHandler(note);

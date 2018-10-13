@@ -11,11 +11,13 @@ const noteList = (props) => {
         items = props.notes.map(note =>
             <NoteItem delete={() =>
                 props.deleteNote(note.id)}
-                animation={props.noteAnimation}
+                animationNote={props.noteAnimation}
+                animationError={props.noteErrorAnimation}
                 enterTime={props.enterTime}
                 exitTime={props.exitTime}
                 key={note.id}
-                noteMessage={note.message} />)
+                showErrors={props.showNoteErrors}
+                note={note} />)
         : items = null;
 
     return (<TransitionGroup className={listItemsClasses.join(' ')}>
