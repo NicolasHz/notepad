@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { updateObject, checkValidity } from '../../../shared/utility';
-import Input from '../../../components/UI/input/input';
+import Input from '../../../components/UI/Input/Input';
 import * as classes from './notepad-form.css'
 
 class NotepadForm extends Component {
